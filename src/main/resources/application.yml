@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: codequest
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/codequest
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:postgres}
+
+  jpa:
+    hibernate:
+      ddl-auto: validate   # schema é controlado pelo Flyway, não pelo Hibernate
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+
+  thymeleaf:
+    cache: false   # desativado em dev para ver mudanças sem reiniciar
+
+server:
+  port: 8080
+
+springdoc:
+  swagger-ui:
+    path: /docs
