@@ -1,7 +1,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-	id("org.springframework.boot") version "3.3.4"
+	id("org.springframework.boot") version "3.2.5"
 	id("io.spring.dependency-management") version "1.1.6"
 	kotlin("jvm") version "1.9.25"
 	kotlin("plugin.spring") version "1.9.25"
@@ -29,8 +29,8 @@ dependencies {
 
 	// Persistência
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-	implementation("org.flywaydb:flyway-core")
-	implementation("org.flywaydb:flyway-database-postgresql")
+	implementation("org.flywaydb:flyway-core:10.10.0")
+	implementation("org.flywaydb:flyway-database-postgresql:10.10.0")
 	runtimeOnly("org.postgresql:postgresql")
 
 	// Segurança (login professor/aluno)

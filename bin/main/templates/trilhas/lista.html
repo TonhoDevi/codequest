@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Trilhas - CodeQuest</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+</head>
+<body>
+    <header class="topbar">
+        <h1>CodeQuest</h1>
+    </header>
+
+    <main class="container">
+        <h2>Suas trilhas</h2>
+        <div class="grid-trilhas">
+            <a class="card-trilha" th:each="trilha : ${trilhas}"
+               th:href="@{'/trilhas/' + ${trilha.slug}}">
+                <h3 th:text="${trilha.titulo}">Título da trilha</h3>
+                <p th:text="${trilha.descricao}">Descrição</p>
+                <span class="badge" th:text="${trilha.modulos.size()} + ' módulos'">0 módulos</span>
+            </a>
+        </div>
+    </main>
+</body>
+</html>
