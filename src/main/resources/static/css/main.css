@@ -201,3 +201,89 @@ body {
 .btn-entrar:active {
     transform: scale(0.98);
 }
+/* ===== Atividades pendentes ===== */
+
+.resumo-progresso {
+    display: flex;
+    gap: 1.5rem;
+    background: white;
+    border: 1px solid var(--cor-borda);
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.resumo-progresso > div {
+    display: flex;
+    flex-direction: column;
+}
+
+.resumo-valor {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--cor-primaria);
+}
+
+.resumo-label {
+    font-size: 0.75rem;
+    color: #8a8aa3;
+}
+
+.bloco-trilha {
+    margin-bottom: 2rem;
+}
+
+.bloco-modulo {
+    margin: 0.75rem 0 1.5rem;
+}
+
+.card-atividade {
+    background: white;
+    border: 1px solid var(--cor-borda);
+    border-radius: 12px;
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.card-atividade-topo {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 0.5rem;
+}
+
+.instrucao {
+    margin: 0 0 1rem;
+    color: var(--cor-texto);
+}
+
+.alternativas {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.alternativa {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.card-atividade textarea {
+    width: 100%;
+    padding: 0.65rem 0.8rem;
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    background: var(--cor-fundo);
+    margin-bottom: 1rem;
+    resize: vertical;
+}
+
+.btn-responder {
+    width: auto;
+    padding: 0.6rem 1.4rem;
+}

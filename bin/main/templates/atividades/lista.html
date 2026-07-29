@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Minhas atividades - CodeQuest</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+</head>
+<body>
+    <header class="topbar">
+        <a th:href="@{/trilhas}">&larr; Trilhas</a>
+        <h1>Atividades pendentes</h1>
+    </header>
+
+    <main class="container">
+
+        <div class="resumo-progresso" th:if="${progresso != null}">
+            <div>
+                <span class="resumo-valor" th:text="${progresso.nivel}">1</span>
+                <span class="resumo-label">Nível</span>
+            </div>
+            <div>
+                <span class="resumo-valor" th:text="${progresso.xpTotal}">0</span>
+                <span class="resumo-label">XP</span>
+            </div>
+            <div>
+                <span class="resumo-valor" th:text="${progresso.streakDias}">0</span>
+                <span class="resumo-label">Dias seguidos</span>
+            </div>
+        </div>
+
+        <div class="login-alert sucesso" th:if="${mensagemSucesso}" th:text="${mensagemSucesso}"></div>
+        <div class="login-alert erro" th:if="${mensagemErro}" th:text="${mensagemErro}"></div>
+
+        <p th:if="${totalPendentes == 0}">Você concluiu todas as atividades disponíveis.</p>
+        <p th:if="${totalPendentes > 0}" class="login-subtitle"
+           th:text="${totalPendentes} + ' atividade(s) pendente(s)'">0 pendentes</p>
+
+        <div th:each="tp : ${trilhasComPendencias}" class="bloco-trilha">
+            <h2 th:text="${tp.trilha.titulo}">Trilha</h2>
+
+            <div th:each="mp : ${tp.modulos}" class="bloco-modulo">
+                <h3 th:text="${mp.modulo.titulo}">Módulo</h3>
+
+                <div th:each="exercicio : ${mp.exerciciosPendentes}" class="card-atividade">
+                    <div class="card-atividade-topo">
+                        <span class="badge" th:text="'+' + ${exercicio.xpRecompensa} + ' XP'">+10 XP</span>
+                    </div>
+
+                    <p class="instrucao" th:text="${exercicio.enunciado}">Enunciado do exercício</p>
+
+                    <form th:action="@{'/atividades/exercicios/' + ${exercicio.id} + '/responder'}" method="post">
+
+                        <div th:if="${exercicio.tipo.name() == 'MULTIPLA_ESCOLHA'}" class="alternativas">
+                            <label class="alternativa"
+                                   th:each="alt : ${#strings.listSplit(exercicio.alternativas, '|')}">
+                                <input type="radio" name="resposta" th:value="${alt}" required>
+                                <span th:text="${alt}">Alternativa</span>
+                            </label>
+                        </div>
+
+                        <div th:unless="${exercicio.tipo.name() == 'MULTIPLA_ESCOLHA'}" class="campo">
+                            <textarea name="resposta" rows="4" placeholder="Digite sua resposta" required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-entrar btn-responder">Enviar resposta</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

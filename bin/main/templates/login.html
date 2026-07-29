@@ -19,6 +19,9 @@
             <div class="login-alert sucesso" th:if="${param.logout}">
                 Você saiu da sua conta com sucesso.
             </div>
+            <div class="login-alert sucesso" th:if="${param.registrado}">
+                Conta criada com sucesso! Faça login para continuar.
+            </div>
 
             <form th:action="@{/login}" method="post">
                 <div class="campo">
@@ -31,6 +34,10 @@
                 </div>
                 <button type="submit" class="btn-entrar">Entrar</button>
             </form>
+
+            <p class="login-subtitle" style="margin-top:1.5rem;">
+                Não tem conta? <a th:href="@{/registro}">Cadastre-se</a>
+            </p>
         </div>
     </div>
 </body>
