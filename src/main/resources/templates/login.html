@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Entrar - CodeQuest</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+</head>
+<body>
+    <div class="login-page">
+        <div class="login-card">
+            <div class="login-logo">CQ</div>
+            <h1>Bem-vindo de volta</h1>
+            <p class="login-subtitle">Entre para continuar sua trilha</p>
+
+            <div class="login-alert erro" th:if="${param.error}">
+                E-mail ou senha inválidos.
+            </div>
+            <div class="login-alert sucesso" th:if="${param.logout}">
+                Você saiu da sua conta com sucesso.
+            </div>
+
+            <form th:action="@{/login}" method="post">
+                <div class="campo">
+                    <label for="username">E-mail</label>
+                    <input type="email" id="username" name="username" placeholder="seu@email.com" required autofocus>
+                </div>
+                <div class="campo">
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" name="password" placeholder="••••••••" required>
+                </div>
+                <button type="submit" class="btn-entrar">Entrar</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

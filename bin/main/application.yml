@@ -21,7 +21,18 @@ spring:
 
   thymeleaf:
     cache: false   # desativado em dev para ver mudanças sem reiniciar
+  
+  servlet:
+    session:
+      tracking-modes: cookie   # nunca usar jsessionid na URL, só cookie
 
+  springdoc:
+    swagger-ui:
+      path: /docs
+
+  logging:
+    level:
+      org.springframework.security: DEBUG
 server:
   port: 8080
 

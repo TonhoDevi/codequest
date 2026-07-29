@@ -87,3 +87,117 @@ body {
     color: var(--cor-primaria);
     font-weight: 600;
 }
+
+/* ===== Tela de login ===== */
+
+.login-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+}
+
+.login-card {
+    background: white;
+    border: 1px solid var(--cor-borda);
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    width: 100%;
+    max-width: 380px;
+    box-shadow: 0 10px 30px rgba(45, 45, 58, 0.08);
+}
+
+.login-logo {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: var(--cor-primaria);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.25rem;
+    margin: 0 auto 1.25rem;
+}
+
+.login-card h1 {
+    text-align: center;
+    font-size: 1.4rem;
+    margin: 0 0 0.35rem;
+}
+
+.login-subtitle {
+    text-align: center;
+    color: #8a8aa3;
+    font-size: 0.9rem;
+    margin: 0 0 1.75rem;
+}
+
+.login-alert {
+    padding: 0.65rem 0.9rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    margin-bottom: 1.25rem;
+}
+
+.login-alert.erro {
+    background: #fdecea;
+    color: #c0392b;
+}
+
+.login-alert.sucesso {
+    background: #eafaf1;
+    color: #1e8449;
+}
+
+.campo {
+    margin-bottom: 1.1rem;
+}
+
+.campo label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    color: var(--cor-texto);
+}
+
+.campo input {
+    width: 100%;
+    padding: 0.65rem 0.8rem;
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    background: var(--cor-fundo);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.campo input:focus {
+    outline: none;
+    border-color: var(--cor-primaria);
+    box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.15);
+    background: white;
+}
+
+.btn-entrar {
+    width: 100%;
+    padding: 0.75rem;
+    background: var(--cor-primaria);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.btn-entrar:hover {
+    background: #5a4bd4;
+}
+
+.btn-entrar:active {
+    transform: scale(0.98);
+}
